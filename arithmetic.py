@@ -25,7 +25,7 @@ def divide(num1, num2):
     return num1 / num2
 
 
-def square(num1):
+def square(num1, num2=1):
     """Return the square of the input."""
 
     # Needs only one argument
@@ -33,7 +33,7 @@ def square(num1):
     return num1 * num1
 
 
-def cube(num1):
+def cube(num1, num2=1):
     """Return the cube of the input."""
 
     # Needs only one argument
