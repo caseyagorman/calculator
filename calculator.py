@@ -21,67 +21,71 @@ def calculator_input():
         user_input = raw_input("> ")
         user_input = user_input.split(" ")
         user_choice = user_input[0][0].lower()
-
-        if len(user_input) == 3:
-            num1 = int(user_input[1])
-            num2 = int(user_input[2])
-            print(num1, num2)
-            return user_choice, num1, num2
-            break
-
-        elif len(user_input) == 2:
-            num1 = num1 = int(user_input[1])
-            print(num1)
-            return user_choice, num1
-            break
+        try:
+            nums = list(map(int, user_input[1:]))
+            return user_choice, nums
+        except ValueError:
+            print("Enter one or two numbers")
 
 
-        elif len(user_input) == 1:
+        # if len(user_input) == 3:
+        #     num1 = int(user_input[1])
+        #     num2 = int(user_input[2])
+        #     print(num1, num2)
+        #     return user_choice, num1, num2
+        #     break
+        #
+        # elif len(user_input) == 2:
+        #     num1 = num1 = int(user_input[1])
+        #     print(num1)
+        #     return user_choice, num1
+        #     break
+        #
+
+        if len(user_input) == 1:
             print ("Please enter a valid command")
 
 
-
-
-
-def calculator_operations(user_choice, num1, num2):
-        print (num1, num2)
+def calculator_operations(user_choice, nums):
+        print (nums)
         while True:
             print("You're in the calculator_operations function.")
-            if user_choice == "a":
-                # num1, num2= calculator_input()
-                print(add(num1, num2))
+            if len(nums) == 2:
+                num1 = nums[0]
+                num2 = nums[1]
+                print (num1, num2)
 
-            elif user_choice == "m":
-                print(minus(num1, num2))
+                if user_choice == "a":
+                    print(add(num1, num2))
 
-            elif user_choice =="t":
-                print(times(num1, num2))
+                elif user_choice == "m":
+                    print(minus(num1, num2))
 
-            elif user_choice =="d":
-                print(divide(num1, num2))
+                elif user_choice =="t":
+                    print(times(num1, num2))
 
-            elif user_choice =="s":
-                print(square(num1))
+                elif user_choice =="d":
+                    print(divide(num1, num2))
 
-            elif user_choice == "c":
-                print(cube(num1))
+            elif len(nums) == 1:
+                num1 = nums[0]
 
-            elif user_choice == "p":
-                print(divide(num1, num2))
+                if user_choice =="s":
+                    print(square(num1))
 
-            elif user_choice == "r":
-                print(divide(num1, num2))
+                elif user_choice == "c":
+                      if len(nums) == 1:
+                        print(cube(num1))
 
             else:
                 print("This is not an option, please try again")
 
-            calculator_input()
+            user_choice, nums = calculator_input()
 
 
 def run_calculator():
         calculator_menu()
-        user_choice, num1, num2 = calculator_input()
-        calculator_operations(user_choice, num1, num2)
-
+        user_choice, nums= calculator_input()
+        calculator_operations(user_choice, nums)
 
 run_calculator()
