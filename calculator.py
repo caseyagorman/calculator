@@ -11,8 +11,8 @@ from arithmetic import *
 
 def calculator_menu():
     print("Welcome to the calcutor!")
-    print("You have the following options: add (a), subtract (s), times (t), divide (d), square (s), cube (c), power (p), and mod (m).")
-    print("To see this menu again, type 'optins (o)'.")
+    print("You have the following options: add (a), minus (m), times (t), divide (d), square (s), cube (c), power (p), and remainder (r).")
+    print("To see this menu again, type 'options (o)'.")
 
 def calculator_input():
     while True:
@@ -64,8 +64,10 @@ def calculator_operations(user_choice, input_number_1, input_number_2):
         user_choice, input_number_1, input_number_2 = calculator_input()
 
 
- # if user_option_choice == "a":
- #        add()
+def run_calculator():
+    calculator_menu()
+    user_function_choice, user_from_input_1, user_from_input_2 = calculator_input()
+    calculator_operations(user_function_choice, user_from_input_1, user_from_input_2)
 
-user_function_choice, user_from_input_1, user_from_input_2 = calculator_input()
-calculator_operations(user_function_choice, user_from_input_1, user_from_input_2)
+
+run_calculator()
