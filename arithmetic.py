@@ -7,7 +7,7 @@ def add(num1, num2):
     return num1 + num2
 
 
-def subtract(num1, num2):
+def minus(num1, num2):
     """Return the second number subtracted from the first."""
 
     return num1 - num2
@@ -47,7 +47,7 @@ def power(num1, num2):
     return num1 ** num2  # ** = exponent operator
 
 
-def mod(num1, num2):
+def remainder(num1, num2):
     """Return the remainder of num / num2."""
 
     return num1 % num2

@@ -16,8 +16,10 @@ def calculator_menu():
 
 def calculator_input():
     while True:
+        print("You're in the calculator_input function.")
         user_input = input("> ")
         user_input = user_input.split(" ")
+        user_option_choice = user_input[0][0].lower()
 
         try:
             try:
@@ -27,18 +29,43 @@ def calculator_input():
             num1 = int(user_input[1])
             num2 = int(user_input[2])
             print(num1, num2)
-            return num1, num2
+            return user_option_choice, num1, num2
             break
         except ValueError:
-            print ("enter a number")
-            print("FAILED")
+            print ("Enter a number")
+
+def calculator_operations(user_choice, input_number_1, input_number_2):
+    while True:
+        print("You're in the calculator_operations function.")
+        print(input_number_1, input_number_2)
+        if user_choice == "a":
+            print(add(input_number_1, input_number_2))
+        elif user_choice == "m":
+            print(minus(input_number_1, input_number_2))
+        elif user_choice =="t":
+            print(times(input_number_1, input_number_2))
+        elif user_choice =="d":
+            print(divide(input_number_1, input_number_2))
+        elif user_choice =="s":
+            print(square(input_number_1))
+        elif user_choice == "c":
+            print(cube(input_number_1))
+        elif user_choice == "p":
+            print(power(input_number_1, input_number_2))
+        elif user_choice == "r":
+            print(remainder(input_number_1, input_number_2))
+        elif user_choice == "o":
+            calculator_menu()
+        elif user_choice == "e":
+            break
+        else:
+            print("This is not an option, please try again")
+
+        user_choice, input_number_1, input_number_2 = calculator_input()
 
 
-
-#calculator_menu()
-#ser_option_choice = user_input[0][0].lower()
-
-
-calculator_input()
  # if user_option_choice == "a":
  #        add()
+
+user_function_choice, user_from_input_1, user_from_input_2 = calculator_input()
+calculator_operations(user_function_choice, user_from_input_1, user_from_input_2)
