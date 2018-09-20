@@ -10,14 +10,13 @@ from arithmetic import *
 
 
 def calculator_menu():
-    print("Welcome to the calcutor!")
+    print("Welcome to the calculator!")
     print("You have the following options: add (a), minus (m), times (t), divide (d), square (s), cube (c), power (p), and remainder (r).")
     print("To see this menu again, type 'options (o)'.")
 
 
 def calculator_input():
     while True:
-        print("You're in the calculator_input function.")
         user_input = raw_input("> ")
         user_input = user_input.split(" ")
         user_choice = user_input[0][0].lower()
@@ -27,21 +26,6 @@ def calculator_input():
         except ValueError:
             print("Enter one or two numbers")
 
-
-        # if len(user_input) == 3:
-        #     num1 = int(user_input[1])
-        #     num2 = int(user_input[2])
-        #     print(num1, num2)
-        #     return user_choice, num1, num2
-        #     break
-        #
-        # elif len(user_input) == 2:
-        #     num1 = num1 = int(user_input[1])
-        #     print(num1)
-        #     return user_choice, num1
-        #     break
-        #
-
         if len(user_input) == 1:
             print ("Please enter a valid command")
 
@@ -49,7 +33,6 @@ def calculator_input():
 def calculator_operations(user_choice, nums):
         print (nums)
         while True:
-            print("You're in the calculator_operations function.")
             if len(nums) == 2:
                 num1 = nums[0]
                 num2 = nums[1]
